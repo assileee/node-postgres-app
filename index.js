@@ -9,6 +9,10 @@ app.post('/echo', (req, res) => {
         data: req.body
     });
 });
+// GET endpoint
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
 
 // Start the server
 app.listen(port, () => {
