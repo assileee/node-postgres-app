@@ -27,6 +27,18 @@ app.put('/data/:id', (req, res) => {
         res.status(404).send('Data not found');
     }
 });
+
+// DELETE endpoint to delete data
+app.delete('/data/:id', (req, res) => {
+    const id = req.params.id;
+    if (dataStore[id]) {
+        delete dataStore[id]; // Delete the data
+        res.send(`Data with id ${id} deleted successfully`);
+    } else {
+        res.status(404).send('Data not found');
+    }
+});
+
 // Start the server
 app.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`);
